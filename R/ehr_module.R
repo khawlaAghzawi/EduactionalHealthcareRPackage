@@ -76,11 +76,11 @@ visualize_ehr_data <- function(ehr_data) {
 
   # Histogram of Age
   #hist(ehr_data$Age, main = "Distribution of Age", xlab = "Age", col = "lightgreen", border = "black")
-  ggplot2::ggplot(ehr_data, aes(x = Age)) +
-    geom_histogram(aes(y = ..density..), bins = 30, fill = "lightblue", color = "black") +
-    geom_density(alpha = 0.5, fill = "red") +
-    labs(title = "Distribution of Age with Density Line", x = "Age", y = "Density") +
-    theme_minimal()
+  ggplot2::ggplot(ehr_data, ggplot2::aes(x = Age)) +
+    ggplot2::geom_histogram(ggplot2::aes(y = ..density..), bins = 30, fill = "lightblue", color = "black") +
+    ggplot2::geom_density(alpha = 0.5, fill = "red") +
+    ggplot2::labs(title = "Distribution of Age with Density Line", x = "Age", y = "Density") +
+    ggplot2::theme_minimal()
   # Bar chart of Gender
   barplot(table(ehr_data$Gender), main = "Gender Distribution", xlab = "Gender", ylab = "Count", col = "skyblue")
 
@@ -88,12 +88,12 @@ visualize_ehr_data <- function(ehr_data) {
   barplot(table(ehr_data$Diagnosis), main = "Diagnosis Distribution", xlab = "Diagnosis", ylab = "Count", col = "pink")
 
   # Scatter plot of Age vs. Diagnosis
-  ggplot2::ggplot(ehr_data, aes(x = Diagnosis, y = Age)) +
-    geom_boxplot(fill = "lightblue", color = "purple") +
-    geom_jitter(position = position_jitter(width = 0.2), color = "purple", alpha = 0.5) +
-    labs(title = "Box Plot with Jitter: Age by Diagnosis",
+  ggplot2::ggplot(ehr_data, ggplot2::aes(x = Diagnosis, y = Age)) +
+    ggplot2::geom_boxplot(fill = "lightblue", color = "purple") +
+    ggplot2::geom_jitter(position = ggplot2::position_jitter(width = 0.2), color = "purple", alpha = 0.5) +
+    ggplot2::labs(title = "Box Plot with Jitter: Age by Diagnosis",
          x = "Diagnosis",
          y = "Age") +
-    theme_minimal()
+    ggplot2::theme_minimal()
 }
 
