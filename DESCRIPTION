@@ -16,4 +16,6 @@ Imports:
     ggplot2,
     imager,
     magrittr,
-    png
+    png,
+    randomForest,
+    caret
