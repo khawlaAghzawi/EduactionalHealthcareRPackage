@@ -13,4 +13,7 @@ RoxygenNote: 7.2.3
 Imports: 
     dplyr,
     tidyr,
-    ggplot2
+    ggplot2,
+    imager,
+    magrittr,
+    png
