@@ -15,8 +15,8 @@
 #'
 #' @examples analyze_ehr_data("PATH/TO/data/ehr_sample_data.csv")
 
-analyze_ehr_data <- function(path) {
-  ehr_data <- read.csv(path)
+analyze_ehr_data <- function(ehr_data) {
+  #ehr_data <- read.csv(path)
 
   # Check if the required columns are present in the preprocessed dataset
   required_columns <- c("PatientID", "Age", "Gender", "Diagnosis")
@@ -33,7 +33,8 @@ analyze_ehr_data <- function(path) {
   print(summary_stats)
 
   # Distribution plot of Age
-  hist(ehr_data$Age, main = "Distribution of Age", xlab = "Age", col = "lightblue", border = "black")
+  hist(ehr_data$Age, main = "Distribution of Age", xlab = "Age", col = "lightblue", border = "black", freq = FALSE)
+  lines(density(ehr_data$Age), col = "red", lwd = 2)
 
   # Pie chart of Gender Distribution
   gender_counts <- table(ehr_data$Gender)
