@@ -1,34 +1,27 @@
 #' Clinical Trial Module
 #'
-#' This module focuses on understanding and analyzing clinical trial data, including trial outcomes, patient profiles, and treatment efficacy.
+#' This module focuses on understanding and analyzing clinical trial data,
+#' including trial outcomes, patient profiles, and treatment efficacy.
 #'
 #' @author Khawla Aghzawi
-#' @docType clinical_trial_module
 #' @keywords healthcare data clinical trial analysis
-#'
-#' @import dplyr
-#' @import tidyr
 
-
-# Load necessary libraries for clinical trial data analysis
-#library(dplyr)
-#library(tidyr)
 
 #' Load Clinical Trial Data
 #'
-#' This function loads a sample clinical trial dataset.
+#' This function reads a CSV file containing clinical trial data and returns it as a dataframe.
 #'
+#' @param path The file path to the CSV file containing clinical trial data.
 #' @return A dataframe containing clinical trial data.
 #' @export
 #'
-load_clinical_trial_data <- function() {
+#' @examples clinical_data <- load_clinical_trial_data("path/to/clinical_data.csv")
+
+load_clinical_trial_data <- function(path) {
+
   # Sample clinical trial data
-  clinical_trial_data <- data.frame(
-    PatientID = c(1, 2, 3, 4, 5),
-    Treatment = c("A", "B", "A", "B", "A"),
-    Outcome = c("Success", "Failure", "Success", "Success", "Failure"),
-    Visit_Date = as.Date(c("2022-01-01", "2022-02-01", "2022-03-01", "2022-04-01", "2022-05-01"))
-  )
+  clinical_trial_data <- read.csv(path)
+  clinical_trial_data$Visit_Date<- as.Date(clinical_trial_data$Visit_Date)
 
   return(clinical_trial_data)
 }
@@ -87,6 +80,37 @@ analyze_clinical_trial_data <- function(clinical_trial_data) {
 
   # Return the analysis results or visualizations
 }
+
+#' Perform Hypothesis Test on Clinical Trial Data
+#'
+#' This function performs a chi-square test for independence on the given clinical trial data.
+#'
+#' @param clinical_trial_data A dataframe containing clinical trial data with columns 'Treatment' and 'Outcome'.
+#' @return The result of the chi-square test for independence.
+#'
+#' @examples
+#'   clinical_data <- load_clinical_trial_data("path/to/clinical_data.csv")
+#'   perform_hypothesis_test(clinical_data)
+#'
+#' @export
+#'
+perform_hypothesis_test <- function(clinical_trial_data) {
+  # Check if required columns are present
+  if (!all(c("Treatment", "Outcome") %in% colnames(clinical_trial_data))) {
+    stop("Required columns 'Treatment' and 'Outcome' are missing.")
+  }
+
+  # Create a contingency table
+  contingency_table <- table(clinical_trial_data$Treatment, clinical_trial_data$Outcome)
+
+  # Perform chi-square test for independence
+  test_result <- chisq.test(contingency_table)
+
+  # Display the test result
+  cat("Chi-square test for independence:\n")
+  print(test_result)
+}
+
 
 #' Visualize Clinical Trial Data
 #'

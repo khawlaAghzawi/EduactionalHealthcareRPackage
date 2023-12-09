@@ -2,13 +2,12 @@
 #'
 #' This module focuses on analyzing and visualizing EHR data.
 #' @author Khawla Aghzawi
-#' @docType EHR_module
 #' @keywords healthcare EHR data analysis
 #'
 
 #' Analyze ehr data
 #'
-#' @param path path to dataset
+#' @param ehr_data to dataset
 #'
 #' @return a summary staatistics and plots
 #' @export
@@ -16,7 +15,6 @@
 #' @examples analyze_ehr_data("PATH/TO/data/ehr_sample_data.csv")
 
 analyze_ehr_data <- function(ehr_data) {
-  #ehr_data <- read.csv(path)
 
   # Check if the required columns are present in the preprocessed dataset
   required_columns <- c("PatientID", "Age", "Gender", "Diagnosis")
