@@ -113,10 +113,20 @@ perform_hypothesis_test <- function(clinical_trial_data) {
 
 
 #' Visualize Clinical Trial Data
+#' This function creates a stacked bar chart to visualize the distribution of treatment outcomes in clinical trial data.
 #'
-#' This function creates visualizations for clinical trial data, such as histograms, bar charts, etc.
+#' @param clinical_trial_data A dataframe containing preprocessed clinical trial
+#' data with columns 'PatientID', 'Treatment', 'Outcome', and 'Visit_Date'.
 #'
-#' @param clinical_trial_data A dataframe containing preprocessed clinical trial data.
+#' @details
+#' The function uses the ggplot2 package to create a stacked bar chart, where
+#' the x-axis represents different treatments,
+#' and the bars are colored based on the outcome (Success or Failure).
+#' The height of each bar represents the count of occurrences.
+#'
+#' @examples
+#'   clinical_data <- load_clinical_trial_data("path/to/clinical_data.csv")
+#'   visualize_clinical_trial_data(clinical_data)
 #' @export
 #'
 visualize_clinical_trial_data <- function(clinical_trial_data) {
@@ -128,13 +138,12 @@ visualize_clinical_trial_data <- function(clinical_trial_data) {
     stop(paste("Missing required columns in the preprocessed clinical trial dataset:", paste(missing_columns, collapse = ", ")))
   }
 
-  # Bar chart of Treatment
-  barplot(table(clinical_trial_data$Treatment), main = "Treatment Distribution", xlab = "Treatment", ylab = "Count", col = "skyblue")
+  ggplot2::ggplot(clinical_trial_data, ggplot2::aes(x = Treatment, fill = Outcome)) +
+    ggplot2::geom_bar(position = "stack", stat = "count") +
+    ggplot2::labs(title = "Distribution of Treatment Outcomes",
+         x = "Treatment",
+         y = "Count") +
+    ggplot2::scale_fill_manual(values = c("Success" = "green", "Failure" = "red")) +
+    ggplot2::theme_minimal()
 
-  # Bar chart of Outcome
-  barplot(table(clinical_trial_data$Outcome), main = "Outcome Distribution", xlab = "Outcome", ylab = "Count", col = "pink")
-
-  # Additional visualizations as needed
-
-  # Return or display the visualizations
 }

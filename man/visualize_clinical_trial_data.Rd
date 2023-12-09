@@ -2,13 +2,26 @@
 % Please edit documentation in R/clinical_trial_module.R
 \name{visualize_clinical_trial_data}
 \alias{visualize_clinical_trial_data}
-\title{Visualize Clinical Trial Data}
+\title{Visualize Clinical Trial Data
+This function creates a stacked bar chart to visualize the distribution of treatment outcomes in clinical trial data.}
 \usage{
 visualize_clinical_trial_data(clinical_trial_data)
 }
 \arguments{
-\item{clinical_trial_data}{A dataframe containing preprocessed clinical trial data.}
+\item{clinical_trial_data}{A dataframe containing preprocessed clinical trial
+data with columns 'PatientID', 'Treatment', 'Outcome', and 'Visit_Date'.}
 }
 \description{
-This function creates visualizations for clinical trial data, such as histograms, bar charts, etc.
+Visualize Clinical Trial Data
+This function creates a stacked bar chart to visualize the distribution of treatment outcomes in clinical trial data.
+}
+\details{
+The function uses the ggplot2 package to create a stacked bar chart, where
+the x-axis represents different treatments,
+and the bars are colored based on the outcome (Success or Failure).
+The height of each bar represents the count of occurrences.
+}
+\examples{
+  clinical_data <- load_clinical_trial_data("path/to/clinical_data.csv")
+  visualize_clinical_trial_data(clinical_data)
 }
