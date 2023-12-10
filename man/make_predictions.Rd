@@ -17,3 +17,9 @@ Predictions for the new data.
 \description{
 This function makes predictions using a trained predictive model.
 }
+\examples{
+# Example usage:
+# Assuming you have a trained model 'trained_model' and a new data frame 'new_data'
+predictions <- make_predictions(trained_model, new_data)
+
+}

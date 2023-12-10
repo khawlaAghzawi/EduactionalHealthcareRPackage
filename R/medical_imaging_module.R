@@ -16,9 +16,8 @@
 #' imaging dataset in PNG format.
 #' @return A 3D array representing the medical imaging data. Each layer
 #' corresponds to a color channel.
-#' @export
 #'
-#' @examples # medical_data <- load_medical_imaging_data("path/to/your/image.png")
+#' @examples medical_data <- load_medical_imaging_data("path/to/your/image.png")
 #' @export
 #'
 load_medical_imaging_data <- function(path) {

@@ -2,7 +2,7 @@
 % Please edit documentation in R/predictive_models_module.R
 \name{build_predictive_model}
 \alias{build_predictive_model}
-\title{Build Predictive Model}
+\title{Predictive Models Module}
 \usage{
 build_predictive_model(training_data)
 }
@@ -13,5 +13,30 @@ build_predictive_model(training_data)
 A trained predictive model.
 }
 \description{
-This function builds a predictive model for patient outcome predictions.
+This module covers building predictive models for healthcare data, including
+patient outcome predictions.
 }
+\examples{
+# Example usage:
+# Assuming you have a training data frame 'train_data'
+trained_model <- build_predictive_model(train_data)
+}
+\author{
+Khawla Aghzawi
+}
+\keyword{Build}
+\keyword{Model}
+\keyword{Predictive}
+\keyword{This}
+\keyword{a}
+\keyword{builds}
+\keyword{data}
+\keyword{for}
+\keyword{function}
+\keyword{healthcare}
+\keyword{model}
+\keyword{modeling}
+\keyword{outcome}
+\keyword{patient}
+\keyword{predictions.}
+\keyword{predictive}

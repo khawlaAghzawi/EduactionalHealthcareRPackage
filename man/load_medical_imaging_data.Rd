@@ -19,7 +19,7 @@ This module covers techniques for medical imaging analysis, including image
 segmentation, object detection, and radiological image interpretation.
 }
 \examples{
-# medical_data <- load_medical_imaging_data("path/to/your/image.png")
+medical_data <- load_medical_imaging_data("path/to/your/image.png")
 }
 \author{
 Khawla Aghzawi

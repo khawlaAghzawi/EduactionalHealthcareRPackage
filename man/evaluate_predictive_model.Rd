@@ -17,3 +17,8 @@ A list of evaluation metrics.
 \description{
 This function evaluates the performance of a predictive model.
 }
+\examples{
+# Example usage:
+# Assuming you have a trained model 'trained_model' and a test data frame 'test_data'
+evaluation_result <- evaluate_predictive_model(trained_model, test_data)
+}
