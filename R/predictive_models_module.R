@@ -7,22 +7,6 @@
 #' @keywords healthcare data predictive modeling
 #'
 
-#' Load Predictive Models Data
-#'
-#' This function loads a sample dataset for building predictive models.
-#'
-#' @return A dataframe containing predictive models data.
-#' @export
-#'
-load_predictive_models_data <- function() {
-  # Placeholder for loading predictive models data
-  # Replace this with your actual loading code
-  message("Loading predictive models data...")
-  # Example: predictive_models_data <- your_loading_function()
-
-  return(predictive_models_data)
-}
-
 
 #' Preprocess Predictive Models Data
 #'
