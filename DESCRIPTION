@@ -18,4 +18,6 @@ Imports:
     magrittr,
     png,
     randomForest,
-    caret
+    caret,
+    purrr,
+    keras
