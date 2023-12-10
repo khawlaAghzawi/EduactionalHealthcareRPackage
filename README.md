@@ -30,7 +30,7 @@ By engaging with the EducationalHealthcareRPackage, users will develop proficien
 
 The package adopts a hands-on approach, providing practical exercises, interactive case studies, and the application of machine learning techniques to real healthcare datasets. 
 Structured tutorials and user-friendly modules within the R package will guide students through various topics.
-
+Check the EduTutorial.rmd file
 
 **Implementation**
 
